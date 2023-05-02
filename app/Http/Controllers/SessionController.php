@@ -22,24 +22,13 @@ class SessionController extends Controller
                 $session->last_activity = Carbon::parse($session->last_activity)->format('Y-M-D');
                 return $session;
             });
-
-
-
-
-
-
-
         return view('session.index', compact('userSessions'));
-
-
-
     }
 
     public function destroy($id)
     {
         Session::getHandler()->destroy($id);
         return redirect()->route('session.index');
-
     }
 
     public function destroyExceptCurrent()
